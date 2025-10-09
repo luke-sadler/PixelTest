@@ -7,6 +7,10 @@
 
 import Foundation
 
+enum NetworkRequestError: Error {
+  case fetchingError(statusCode: Int)
+}
+
 protocol NetworkRequester {
   func makeRequest<T: Decodable>(_ request: URLRequest) async throws -> T
 }
