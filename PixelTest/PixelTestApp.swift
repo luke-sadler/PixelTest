@@ -9,9 +9,16 @@ import SwiftUI
 
 @main
 struct PixelTestApp: App {
-    var body: some Scene {
-        WindowGroup {
-            UserList()
-        }
+  
+  init() {
+    if NSClassFromString("XCTest") != nil {
+      InjectedValues[\.userFetchServiceProvider] = UserFetchServiceMock()
     }
+  }
+  
+  var body: some Scene {
+    WindowGroup {
+      UserList()
+    }
+  }
 }

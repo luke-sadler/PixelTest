@@ -1,0 +1,39 @@
+{
+  "configurations" : [
+    {
+      "id" : "75B66C6D-C360-40B0-8115-D6493F46FCEA",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "performanceAntipatternCheckerEnabled" : true,
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:PixelTest.xcodeproj",
+      "identifier" : "A311F05E2E96B6AC00BCA5CD",
+      "name" : "PixelTest"
+    }
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:PixelTest.xcodeproj",
+        "identifier" : "A311F06B2E96B6AE00BCA5CD",
+        "name" : "PixelTestTests"
+      }
+    },
+    {
+      "enabled" : false,
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:PixelTest.xcodeproj",
+        "identifier" : "A311F0752E96B6AE00BCA5CD",
+        "name" : "PixelTestUITests"
+      }
+    }
+  ],
+  "version" : 1
+}

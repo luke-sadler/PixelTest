@@ -27,6 +27,7 @@
 		A311F05F2E96B6AC00BCA5CD /* PixelTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PixelTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A311F06C2E96B6AE00BCA5CD /* PixelTestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PixelTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A311F0762E96B6AE00BCA5CD /* PixelTestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PixelTestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A339C4852E97EAB500D21E66 /* PixelTest.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = PixelTest.xctestplan; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -75,6 +76,7 @@
 		A311F0562E96B6AC00BCA5CD = {
 			isa = PBXGroup;
 			children = (
+				A339C4852E97EAB500D21E66 /* PixelTest.xctestplan */,
 				A311F0612E96B6AC00BCA5CD /* PixelTest */,
 				A311F06F2E96B6AE00BCA5CD /* PixelTestTests */,
 				A311F0792E96B6AE00BCA5CD /* PixelTestUITests */,

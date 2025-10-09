@@ -46,17 +46,16 @@ class UserListViewModel: ObservableObject {
   func followUser(_ user: User) async {
     
     do {
-      try await accountManagementService.followUser(user)
+      try await accountManagementService.followUser(user.accountId)
       await fetchFollowedUsers()
     } catch let error {
       self.error = error
     }
-    
   }
   
   func unfollowUser(_ user: User) async {
     do {
-      try await accountManagementService.unfollowUser(user)
+      try await accountManagementService.unfollowUser(user.accountId)
       await fetchFollowedUsers()
     } catch let error {
       self.error = error

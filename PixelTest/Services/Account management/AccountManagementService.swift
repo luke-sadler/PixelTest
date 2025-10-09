@@ -11,10 +11,10 @@ import Foundation
 protocol AccountManagementService {
   
   /// Pass in user you want to follow
-  func followUser(_ user: User) async throws
+  func followUser(_ accountId: Int) async throws
   
   /// Pass in user that you want to stop following
-  func unfollowUser(_ user: User) async throws
+  func unfollowUser(_ accountId: Int) async throws
   
   /// Fetch a list of user IDs that you are currently following
   func fetchFollowedUsers() async throws -> [Int]

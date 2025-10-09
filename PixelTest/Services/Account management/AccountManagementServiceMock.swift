@@ -20,19 +20,19 @@ class AccountManagementMock: AccountManagementService {
     defaults.array(forKey: followsKey) as? [Int] ?? []
   }
   
-  func followUser(_ user: User) async throws {
+  func followUser(_ accountId: Int) async throws {
     var follows = followedUserIds
     
-    if follows.contains(user.accountId) == false {
-      follows.append(user.accountId)
+    if follows.contains(accountId) == false {
+      follows.append(accountId)
     }
     
     defaults.set(follows, forKey: followsKey)
   }
   
-  func unfollowUser(_ user: User) async throws {
+  func unfollowUser(_ accountId: Int) async throws {
     var follows = followedUserIds
-    follows.removeAll(where: { $0 == user.accountId })
+    follows.removeAll(where: { $0 == accountId })
     defaults.set(follows, forKey: followsKey)
   }
   

@@ -12,5 +12,17 @@ enum NetworkRequestError: Error {
 }
 
 protocol NetworkingService {
+  
+  var jsonDecoder: JSONDecoder { get }
+  
   func makeRequest<T: Decodable>(_ request: URLRequest) async throws -> T
+}
+
+extension NetworkingService {
+  var jsonDecoder: JSONDecoder {
+    
+    let decoder = JSONDecoder()
+    decoder.keyDecodingStrategy = .convertFromSnakeCase
+    return decoder
+  }
 }

@@ -9,13 +9,13 @@ import Foundation
 
 /// Here we would otherwise have real api calls to mutate a following list in a backend.
 
-class AccountManagementImpl: AccountManagementService {
+class AccountManagementServiceImpl: AccountManagementService {
   
-  func followUser(_ user: User) async throws {
+  func followUser(_ accountId: Int) async throws {
     print("Not implemented")
   }
   
-  func unfollowUser(_ user: User) async throws {
+  func unfollowUser(_ accountId: Int) async throws {
     print("Not implemented")
   }
 
@@ -23,5 +23,4 @@ class AccountManagementImpl: AccountManagementService {
     print("Not implemented")
     return []
   }
-  
 }

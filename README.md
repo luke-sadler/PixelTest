@@ -8,13 +8,13 @@ For this test, I have used the following:
 - SwiftUI
 - XCTests
 
-For the sake of speed, I opted to use SwiftUI as it is what I am have been using for the past ~4 years. I could have equally completed this task in UIKit as I do have experience here.
+For the sake of speed, I opted to use SwiftUI as it is what I am have been using for the past ~4 years. I could have equally completed this task in UIKit as I do have experience there.
 
 ---
 ### Account following
 
 As per the spec, account following is carried out locally as a mocked service. 
-To achieve this, in [`AccountManagementServiceMock.swift`](PixelTest/Services/Account%20management/AccountManagementServiceMock.swift) I have incorperated a simple `UserDefaults` list of user ids. 
+To achieve this, in [AccountManagementServiceMock.swift](PixelTest/Services/Account%20management/AccountManagementServiceMock.swift) I have incorperated a simple `UserDefaults` list of user ids. 
 Following and unfollowing simply modifies that stored array of integers. 
 
 The mock service is set by default at the DI level in [InjectedValues.swift](PixelTest/DI/InjectedValues.swift#L57)
@@ -29,4 +29,8 @@ The gotchya here was that it turns out that StackOverflow returns this name html
 --- 
 ### Unit tests
 
-TODO
+As to not repeatedly hit the StackOverflow endpoint, in [PixelTestApp.swift](PixelTest/PixelTestApp.swift#L13) I am detecting XCTests to swap the user fetching service with the mock service. 
+
+In the simple tests, I have checked that the User model is still valid for the stashed JSON within the test. It uses the shared JSONDecoder that the real `NetworkingServiceImpl` uses via the protocol default value. This will not only prevent repeated code to create the json decoder, but also ensure the test is meaningful.
+
+There is also a test to ensure the (mock) follow/ unfollow mechanic works.
