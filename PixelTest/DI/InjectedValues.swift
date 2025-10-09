@@ -43,7 +43,7 @@ extension InjectedValues {
   
   // MARK: - Account management
   private struct AccountManagementServiceKey: InjectionKey {
-    static var currentValue: AccountManagementService = AccountManagementMock() // implicitly setting 
+    static var currentValue: AccountManagementService = AccountManagementMock() // explicityly setting to mock here as for this test it will not change
   }
   
   var accountManagementServiceProvider: AccountManagementService {

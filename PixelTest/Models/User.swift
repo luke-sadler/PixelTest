@@ -23,9 +23,18 @@ extension User {
   
   var presentableCreationDate: String {
     
-    ""
+    let created = Date(timeIntervalSince1970: TimeInterval(creationDate))
+    
+    let dateFormatter = DateFormatter()
+    dateFormatter.timeStyle = .none
+    dateFormatter.dateStyle = .short
+    
+    return dateFormatter.string(from: created)
     
   }
   
+  var profileImageUrl: URL? {
+    URL(string: profileImage)
+  }
   
 }

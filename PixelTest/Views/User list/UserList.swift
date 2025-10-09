@@ -23,22 +23,33 @@ struct UserList: View {
       
       List(viewModel.users) { item in
         
-        Text(item.displayName)
+        UserRowView(user: item,
+                    follows: viewModel.isUserFollowed(item),
+                    tappedFollow: {
+          await viewModel.followUser(item)
+        },
+                    tappedUnfollow: {
+          await viewModel.unfollowUser(item)
+        })
         
       }
+      .selectionDisabled()
       .task(id: viewModel.taskId) {
         await viewModel.updateUsers()
+        await viewModel.fetchFollowedUsers()
       }
       .refreshable {
         viewModel.taskId = .init()
       }
+      .navigationTitle("Top StackOverflow Users")
+      .navigationBarTitleDisplayMode(.inline)
     }
     
   }
 }
 
 #Preview {
-  // Inject mock user service before returning the previewed list
+  // Inject mock user service before returning the previewed list as to not hammer api during dev
   InjectedValues[\.userFetchServiceProvider] = UserFetchServiceMock()
   return UserList()
 }
