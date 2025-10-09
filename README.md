@@ -38,12 +38,13 @@ There is also a test to ensure the (mock) follow/ unfollow mechanic works.
 ---
 ### Note on boiler plate code
 
-The exercise pdf does specify 'All code must be your own'. There are two instances where I have used boiler plate code from blogs. This is code that I have used in the past and find to be the neatest. (AsyncButton, and InjectedValues).  
+The exercise pdf does specify 'All code must be your own'. There are two instances where I have used boiler plate code from blogs - code which I have used in previous projects for a few years. This is code that I have used in the past and find to be the neatest. (AsyncButton, and InjectedValues).  
 
 I have commented where I have sourced these from in the comments. 
 
-I did spend a good while contemplating the idea to write these myself from scratch to fully adhere to the spec, but ultimately decided take this approach as to not reinvent the wheel/ plagarise. I did start writing these myself, but whatever I wrote would have taken direct inspiration from these sources, so rather than plagarise I thought ultimately it be best to stick with these tried-and-tested snippets.  
+I did spend a good while contemplating the idea to write these myself from scratch to fully adhere to the spec, but ultimately decided take this approach as to not reinvent the wheel/ plagarise. I did start writing these myself, but whatever I wrote was taking direct inspiration from these sources, so rather than plagarise I thought ultimately it be best to stick with these tried-and-tested snippets and provide credit.  
 
-The [AsyncButton](PixelTest/Views/AsyncButton.swift) is a nice-to-have SwiftUI button that handles async functionality within the button action, and [InjectedValues](PixelTest/DI/InjectedValues.swift) provides a neat way to be able to inject services.
+- The [AsyncButton](PixelTest/Views/AsyncButton.swift) is a very basic, nice-to-have SwiftUI button that handles async functionality within the button action (used when 'following' users), and 
+- [InjectedValues](PixelTest/DI/InjectedValues.swift) provides a neat way to be able to inject services.
 
 I hope this does not go against me too much.

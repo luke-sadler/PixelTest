@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-// As async button i've used for a good while now for gracefully handling async functions within a button tap taken from https://www.swiftbysundell.com/articles/building-an-async-swiftui-button/
+// An async button i've used for a good while now for gracefully handling async functions within a button tap taken from https://www.swiftbysundell.com/articles/building-an-async-swiftui-button/
 
 /// Performs async functions on tap action.
 struct AsyncButton<Label: View>: View {
