@@ -14,8 +14,6 @@ struct UserRowView: View {
   var tappedFollow: () async -> Void
   var tappedUnfollow: () async -> Void
   
-  var isLoading: Bool = false
-  
   var body: some View {
     
     HStack {
@@ -28,9 +26,12 @@ struct UserRowView: View {
       .clipShape(Circle())
       
       VStack(alignment: .leading) {
-        Text(user.displayName)
+        Text(user.presentableDisplayName)
           .font(.title2)
-        Text("Member since: \(user.presentableCreationDate)")
+        
+        Text("Account created:")
+          .font(.caption)
+        Text(user.presentableCreationDate)
         
         BadgesView(userBadges: user.badgeCounts)
       }

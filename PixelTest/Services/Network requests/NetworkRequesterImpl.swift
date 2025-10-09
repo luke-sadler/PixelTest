@@ -7,7 +7,7 @@
 
 import Foundation
 
-class NetworkRequesterImpl: NetworkRequester {
+class NetworkingServiceImpl: NetworkingService {
   
   func makeRequest<T: Decodable>(_ request: URLRequest) async throws -> T {
     

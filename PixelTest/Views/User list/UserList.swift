@@ -10,6 +10,8 @@ import SwiftUI
 
 struct UserList: View {
   
+  // Only set to true on first launch when data is initially pulling. shows activity spinner.
+  @State var showLoading: Bool = false
   @StateObject var viewModel = UserListViewModel()
   
   var body: some View {
@@ -21,7 +23,11 @@ struct UserList: View {
           .foregroundStyle(Color.red)
       }
       
-      List(viewModel.users) { item in
+      if showLoading {
+        ProgressView()
+      }
+      
+      List(viewModel.users, id: \.accountId) { item in
         
         UserRowView(user: item,
                     follows: viewModel.isUserFollowed(item),
@@ -31,16 +37,20 @@ struct UserList: View {
                     tappedUnfollow: {
           await viewModel.unfollowUser(item)
         })
+        .selectionDisabled()
         
       }
-      .selectionDisabled()
       .task(id: viewModel.taskId) {
         await viewModel.updateUsers()
         await viewModel.fetchFollowedUsers()
+        showLoading = false
       }
       .refreshable {
         viewModel.taskId = .init()
       }
+      .onAppear(perform: {
+        showLoading = true
+      })
       .navigationTitle("Top StackOverflow Users")
       .navigationBarTitleDisplayMode(.inline)
     }

@@ -31,6 +31,17 @@ struct InjectedValues {
 }
 
 extension InjectedValues {
+  
+  // MARK: - Network layer
+  private struct NetworkingServiceKey: InjectionKey {
+    static var currentValue: NetworkingService = NetworkingServiceImpl()
+  }
+  
+  var networkingServiceProvider: NetworkingService {
+    get { Self[NetworkingServiceKey.self] }
+    set { Self[NetworkingServiceKey.self] = newValue }
+  }
+  
   // MARK: - User fetching
   private struct UserFetchServiceKey: InjectionKey {
     static var currentValue: UserFetchService = UserFetchServiceImpl()
@@ -43,7 +54,7 @@ extension InjectedValues {
   
   // MARK: - Account management
   private struct AccountManagementServiceKey: InjectionKey {
-    static var currentValue: AccountManagementService = AccountManagementMock() // explicityly setting to mock here as for this test it will not change
+    static var currentValue: AccountManagementService = AccountManagementMock() // explicitly setting to mock here as for this test project it will not change
   }
   
   var accountManagementServiceProvider: AccountManagementService {

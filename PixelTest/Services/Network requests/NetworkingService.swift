@@ -11,6 +11,6 @@ enum NetworkRequestError: Error {
   case fetchingError(statusCode: Int)
 }
 
-protocol NetworkRequester {
+protocol NetworkingService {
   func makeRequest<T: Decodable>(_ request: URLRequest) async throws -> T
 }
