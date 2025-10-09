@@ -30,6 +30,7 @@ struct InjectedValues {
   }
 }
 
+// MARK: - Build out dependencies -
 extension InjectedValues {
   
   // MARK: - Network layer
@@ -61,5 +62,4 @@ extension InjectedValues {
     get { Self[AccountManagementServiceKey.self] }
     set { Self[AccountManagementServiceKey.self] = newValue }
   }
-  
 }
