@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="24128" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24063"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UserTableViewCell" customModule="PixelTestUIKit" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="UserTableViewCell" customModule="PixelTestUIKit" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="840" height="170"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NuO-kB-GUG">
+                    <rect key="frame" x="20" y="55" width="60" height="60"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="60" id="awM-i1-B7O"/>
+                        <constraint firstAttribute="height" constant="60" id="xK2-Oc-6wI"/>
+                    </constraints>
+                </imageView>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="A0G-Kq-0ee">
+                    <rect key="frame" x="90" y="10" width="575" height="150"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="NYR-xW-ono" userLabel="Username">
+                            <rect key="frame" x="0.0" y="0.0" width="575" height="109.33333333333333"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="19k-Tr-a5V" userLabel="created on">
+                            <rect key="frame" x="0.0" y="109.33333333333333" width="575" height="20.333333333333329"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lsx-hs-3vV" userLabel="Date label">
+                            <rect key="frame" x="0.0" y="129.66666666666666" width="575" height="20.333333333333343"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                </stackView>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="GfT-M7-BK4">
+                    <rect key="frame" x="31.666666666666671" y="66.666666666666671" width="37" height="37"/>
+                </activityIndicatorView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2vP-z6-v7o" userLabel="FollowButton">
+                    <rect key="frame" x="760" y="60" width="50" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="50" id="9cj-ht-Of4"/>
+                        <constraint firstAttribute="height" constant="50" id="nGX-sL-aDc"/>
+                    </constraints>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain"/>
+                    <connections>
+                        <action selector="followButtonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="RNW-Fs-Pds"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="A0G-Kq-0ee" firstAttribute="leading" secondItem="NuO-kB-GUG" secondAttribute="trailing" constant="10" id="0CQ-gL-63M"/>
+                <constraint firstItem="GfT-M7-BK4" firstAttribute="centerX" secondItem="NuO-kB-GUG" secondAttribute="centerX" id="0be-cd-n0S"/>
+                <constraint firstItem="2vP-z6-v7o" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="6tN-kO-HxE"/>
+                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="NuO-kB-GUG" secondAttribute="bottom" id="DDH-bN-fV8"/>
+                <constraint firstItem="NuO-kB-GUG" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="U1N-hS-zbt"/>
+                <constraint firstItem="NuO-kB-GUG" firstAttribute="top" relation="greaterThanOrEqual" secondItem="iN0-l3-epB" secondAttribute="top" id="ZSM-rk-CKs"/>
+                <constraint firstItem="2vP-z6-v7o" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="A0G-Kq-0ee" secondAttribute="trailing" constant="20" id="gkH-9S-Qsx"/>
+                <constraint firstItem="GfT-M7-BK4" firstAttribute="centerY" secondItem="NuO-kB-GUG" secondAttribute="centerY" id="h9D-uP-VHa"/>
+                <constraint firstItem="NuO-kB-GUG" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="k4P-hS-U2H"/>
+                <constraint firstItem="A0G-Kq-0ee" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="w5A-lA-gRM"/>
+                <constraint firstAttribute="trailingMargin" secondItem="2vP-z6-v7o" secondAttribute="trailing" constant="10" id="yka-CT-92n"/>
+                <constraint firstAttribute="bottom" secondItem="A0G-Kq-0ee" secondAttribute="bottom" constant="10" id="yxR-AH-IXd"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="createdDateLabel" destination="Lsx-hs-3vV" id="z7w-6A-Ptd"/>
+                <outlet property="createdOnLabel" destination="19k-Tr-a5V" id="s5O-zQ-wfG"/>
+                <outlet property="followButton" destination="2vP-z6-v7o" id="aaJ-UC-631"/>
+                <outlet property="profileImageActivityView" destination="GfT-M7-BK4" id="HGI-kj-waC"/>
+                <outlet property="profileImageView" destination="NuO-kB-GUG" id="c8k-pt-pnU"/>
+                <outlet property="usernameLabel" destination="NYR-xW-ono" id="ssS-Sy-WyH"/>
+            </connections>
+            <point key="canvasLocation" x="100.76335877862596" y="402.81690140845075"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
