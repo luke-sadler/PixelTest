@@ -67,13 +67,13 @@ class UserBadgesView: UIView {
     silverLabel = .init()
     bronzeLabel = .init()
     
-    hStack.addArrangedSubview(circleView(.yellow))
+    hStack.addArrangedSubview(circleView(.systemYellow))
     hStack.addArrangedSubview(goldLabel)
     
-    hStack.addArrangedSubview(circleView(.gray))
+    hStack.addArrangedSubview(circleView(.systemGray))
     hStack.addArrangedSubview(silverLabel)
     
-    hStack.addArrangedSubview(circleView(.brown))
+    hStack.addArrangedSubview(circleView(.systemBrown))
     hStack.addArrangedSubview(bronzeLabel)
   }
   
