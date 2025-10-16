@@ -14,15 +14,23 @@ protocol UserTableViewModelDelegate: NSObject {
 
 class UserTableViewModel: NSObject {
   
+  // MARK: - Injected values
   @Injected(\.userFetchServiceProvider) private var userFetchingService: UserFetchService
   @Injected(\.accountManagementServiceProvider) private var accountManagementService: AccountManagementService
 
-  
+  // MARK: - Public vars
   var followedUsers = [Int]()
   var users = [User]()
-  
   weak var delegate: UserTableViewModelDelegate?
   
+  // MARK: - Constructor
+  override init() {
+    super.init()
+    
+    InjectedValues[\.userFetchServiceProvider] = UserFetchServiceMock()
+  }
+  
+  // MARK: - Public functions
   func loadUserData() async throws {
     users = try await userFetchingService.fetchTopUserList()
     followedUsers = try await accountManagementService.fetchFollowedUsers()
@@ -30,6 +38,7 @@ class UserTableViewModel: NSObject {
   
 }
 
+// MARK: - Table data source functions
 extension UserTableViewModel: UITableViewDataSource {
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     users.count
@@ -41,12 +50,13 @@ extension UserTableViewModel: UITableViewDataSource {
     let cell = tableView.dequeueReusableCell(withIdentifier: "UserCell",
                                              for: indexPath) as? UserTableViewCell ?? UserTableViewCell()
     
-    cell.setupUserView(user)
     cell.delegate = self
+    cell.setupUserView(user)
     return cell
   }
 }
 
+// MARK: - Table cell delegate methods
 extension UserTableViewModel: UserTableViewCellDelegate {
   
   func userTableViewCellQueryUserFollow(_ userId: Int) -> Bool {

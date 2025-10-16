@@ -21,6 +21,7 @@ enum UserTableViewCellError: Error {
 
 class UserTableViewCell: UITableViewCell {
   
+  // MARK: - Outlets
   @IBOutlet var profileImageActivityView: UIActivityIndicatorView!
   @IBOutlet var profileImageView: UIImageView!
   
@@ -33,10 +34,15 @@ class UserTableViewCell: UITableViewCell {
   // Heart or not
   @IBOutlet var followButton: UIButton!
   
+  @IBOutlet var userBadgesView: UserBadgesView!
+  
+  // MARK: - Public vars
   weak var delegate: UserTableViewCellDelegate?
   
+  // MARK: - Private vars
   private var userId: Int?
     
+  // MARK: - Constructors
   required init?(coder: NSCoder) {
     super.init(coder: coder)
   }
@@ -51,6 +57,7 @@ class UserTableViewCell: UITableViewCell {
     setupUI()
   }
   
+  // MARK: - Private functions
   private func setupUI() {
     self.selectionStyle = .none
     
@@ -60,8 +67,10 @@ class UserTableViewCell: UITableViewCell {
     profileImageActivityView.hidesWhenStopped = true
     
     usernameLabel.font = UIFont.preferredFont(forTextStyle: .title2)
+    
     createdOnLabel.text = "Created on:"
-    createdDateLabel.font = UIFont.preferredFont(forTextStyle: .caption1)
+    createdOnLabel.font = UIFont.preferredFont(forTextStyle: .caption2)
+    createdDateLabel.font = UIFont.preferredFont(forTextStyle: .callout)
     
     usernameLabel.adjustsFontForContentSizeCategory = true
     createdOnLabel.adjustsFontForContentSizeCategory = true
@@ -70,7 +79,9 @@ class UserTableViewCell: UITableViewCell {
     followButton.tintColor = .red
   }
   
+  // MARK: - Public functions
   func setupUserView(_ user: User) {
+    
     self.userId = user.accountId
     
     self.usernameLabel.text = user.presentableDisplayName
@@ -89,6 +100,7 @@ class UserTableViewCell: UITableViewCell {
     }
     
     handleProfileImage(user.accountId)
+    userBadgesView.updateBadgeValues(user.badgeCounts)
   }
   
   private func handleProfileImage(_ id: Int) {
@@ -119,7 +131,4 @@ class UserTableViewCell: UITableViewCell {
       }
     }
   }
-  
-  
-  
 }

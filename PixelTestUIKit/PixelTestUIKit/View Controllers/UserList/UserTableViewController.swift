@@ -30,6 +30,9 @@ class UserTableViewController: UITableViewController {
       .init(nibName: "UserTableViewCell", bundle: nil),
       forCellReuseIdentifier: "UserCell")
     
+    tableView.rowHeight = UITableView.automaticDimension
+    tableView.estimatedRowHeight = 80
+    
     self.tableView.dataSource = viewModel
   }
   
@@ -70,15 +73,6 @@ class UserTableViewController: UITableViewController {
     
     activityIndicator.stopAnimating()
     
-  }
-  
-}
-
-// MARK: - TableView Delegate methods
-extension UserTableViewController {
-  
-  override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    tableView.deselectRow(at: indexPath, animated: true)
   }
 }
 
