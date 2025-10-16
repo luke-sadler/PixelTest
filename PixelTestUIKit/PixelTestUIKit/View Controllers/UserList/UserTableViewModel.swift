@@ -27,7 +27,7 @@ class UserTableViewModel: NSObject {
   override init() {
     super.init()
     
-    InjectedValues[\.userFetchServiceProvider] = UserFetchServiceMock()
+//    InjectedValues[\.userFetchServiceProvider] = UserFetchServiceMock()
   }
   
   // MARK: - Public functions
